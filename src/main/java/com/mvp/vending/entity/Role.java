@@ -1,0 +1,44 @@
+package com.mvp.vending.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "roles")
+public class Role {
+    @Id
+    @Column(name = "role_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+     
+    public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	private String name;
+    public Integer getId() {
+        return id;
+    }
+     
+    /** Coin constructor
+    *
+    * @param value how much the coin is worth
+    * @param amount how many coins you have
+    */
+   public Role(String name){
+       this.name = name;
+   }
+
+   public Role(){
+       //jpa only
+   }  
+}
